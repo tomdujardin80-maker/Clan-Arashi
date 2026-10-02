@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Candidature de Tatsumi Arashi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#070b14; --nuit2:#0c1324; --foudre:#ffe27a; --braise:#ff9a55; --neige:#bcd7ff;
+  --texte:#dfe5f2; --doux:#9fabc6; --filet:rgba(255,226,122,.22);
+  --titre:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;
+  --corps:'Newsreader',Georgia,'Times New Roman',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px;background:var(--nuit)}
+body{background:linear-gradient(180deg,#070b14,#0b1322 50%,#070b14);color:var(--texte);font:400 1.15rem/1.9 var(--corps);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--foudre);outline-offset:3px}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;transition:opacity .5s}
+#flash{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(80% 60% at 50% 0%,rgba(210,225,255,.5),transparent 70%);opacity:0}
+#flash.go{animation:fl 1s both}
+#prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:30;background:var(--foudre);transform:scaleX(0);transform-origin:left}
+main,.hero,footer{position:relative;z-index:1}
+
+.bar{position:fixed;top:0;left:0;right:0;z-index:20;transition:background .3s,backdrop-filter .3s}
+.bar.solid{background:rgba(7,11,20,.82);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--filet)}
+.bar-in{max-width:1120px;margin:auto;padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.bar b{font:800 1.3rem var(--titre);letter-spacing:.05em;white-space:nowrap}
+.bar nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{padding:6px 12px;text-decoration:none;font-size:.98rem;color:var(--doux);white-space:nowrap;border-radius:3px}
+.bar nav a:hover,.bar nav a.on{color:var(--foudre)}
+
+/* héros */
+.hero{min-height:100vh;display:flex;align-items:center;overflow:hidden;background:radial-gradient(90% 70% at 78% 8%,rgba(60,90,160,.55),transparent 65%),linear-gradient(#0a1224,#070b14)}
+.hero-in{max-width:1120px;width:100%;margin:auto;padding:120px 20px 220px;position:relative;z-index:2}
+.hero h1{font:800 clamp(4rem,15vw,10.5rem)/.86 var(--titre);animation:rise 1s .1s both}
+.hero .sub{margin-top:28px;max-width:36ch;font-size:1.3rem;line-height:1.6;color:#c9d4ea;animation:rise 1s .5s both}
+.hero q{display:block;margin-top:30px;font-style:italic;font-size:1.2rem;color:var(--foudre);quotes:"« " " »";animation:rise 1s .8s both}
+.go{display:inline-block;margin-top:36px;padding:13px 28px;border:1px solid var(--foudre);color:var(--foudre);text-decoration:none;border-radius:3px;transition:background .25s,color .25s;animation:rise 1s 1s both}
+.go:hover{background:var(--foudre);color:#0a1224}
+.bolt{position:absolute;right:0;top:0;height:78%;width:min(60%,720px);z-index:1;pointer-events:none}
+.bolt path{fill:none;stroke:var(--foudre);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:trace 1.2s .3s ease-out forwards;filter:drop-shadow(0 0 8px rgba(255,226,122,.9))}
+.bolt .b2{stroke:#9fc0ff;stroke-width:1.6;animation-delay:.7s;filter:drop-shadow(0 0 6px rgba(150,190,255,.9))}
+.fl{position:absolute;inset:0;z-index:1;background:radial-gradient(60% 60% at 72% 25%,#fff,rgba(170,200,255,.4) 45%,transparent 72%);opacity:0;animation:fl 1.4s 1.4s both}
+.mts{position:absolute;left:0;right:0;bottom:-1px;height:250px;z-index:2;width:100%}
+.cloud{position:absolute;inset:-20% -30%;z-index:0;background:radial-gradient(40% 18% at 25% 70%,rgba(120,150,210,.16),transparent),radial-gradient(35% 14% at 70% 55%,rgba(120,150,210,.12),transparent);animation:drift 40s linear infinite alternate}
+@keyframes trace{to{stroke-dashoffset:0}}
+@keyframes fl{0%{opacity:0}10%{opacity:.6}22%{opacity:.08}34%{opacity:.35}100%{opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes drift{to{transform:translateX(9%)}}
+
+/* sections de lecture */
+.sec{padding:110px 20px}
+.sec .in{max-width:1080px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.75fr);gap:64px}
+.sec h2{font:800 clamp(2.8rem,6.5vw,4.6rem)/.95 var(--titre);align-self:start;position:sticky;top:96px}
+.sec h2::after{content:"";display:block;width:64px;height:3px;margin-top:20px;background:linear-gradient(90deg,var(--foudre),transparent)}
+.sec p{margin-bottom:1.35em;max-width:62ch}
+.glass{background:rgba(14,22,42,.7);border:1px solid var(--filet);border-radius:4px;padding:10px 34px;backdrop-filter:blur(6px)}
+.glass dl{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+.glass dl div{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.glass dl div:nth-last-child(-n+2){border-bottom:0}
+.glass dt{font-size:.95rem;color:var(--doux);line-height:1.3}
+.glass dd{font:800 1.55rem/1.15 var(--titre);color:#fff;margin-top:4px;letter-spacing:.02em}
+
+/* histoire */
+.intro{max-width:760px;margin:auto;padding:110px 20px 20px;text-align:center}
+.intro h2{font:800 clamp(3rem,8vw,5.6rem)/.95 var(--titre)}
+.intro p{color:var(--doux);margin-top:18px}
+.som{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:30px}
+.som a{min-width:44px;padding:5px 12px;border:1px solid var(--filet);border-radius:3px;text-decoration:none;font:800 1.1rem var(--titre);color:var(--foudre);transition:background .2s,color .2s}
+.som a:hover{background:var(--foudre);color:#0a1224}
+.chap{padding:100px 20px}
+.chap .in{max-width:650px;margin:auto;position:relative}
+.chap .num{position:absolute;left:-.06em;top:-.5em;font:800 clamp(8rem,26vw,15rem)/.8 var(--titre);color:transparent;-webkit-text-stroke:1.5px rgba(255,226,122,.3);pointer-events:none;user-select:none}
+.chap h3{position:relative;font:800 clamp(2.5rem,6vw,3.9rem)/1 var(--titre);padding-top:3.4rem;margin-bottom:30px}
+.chap p{margin-bottom:1.4em}
+.chap h3+p::first-letter{font:800 4.6rem/.78 var(--titre);float:left;padding:.07em .1em 0 0;color:var(--foudre)}
+.chap blockquote{margin:1.8em 0;padding:6px 0 6px 24px;border-left:3px solid var(--foudre);font-style:italic;font-size:1.25rem;color:#fff}
+.chap p.trial{padding:16px 22px;background:rgba(14,22,42,.65);border-left:3px solid var(--braise);border-radius:0 4px 4px 0}
+.chap[data-fx=snow]{background:linear-gradient(180deg,transparent,rgba(110,160,230,.1) 45%,transparent)}
+.chap[data-fx=embers]{background:linear-gradient(180deg,transparent,rgba(255,140,70,.09) 45%,transparent)}
+.chap[data-fx=storm]{background:linear-gradient(180deg,transparent,rgba(90,110,200,.14) 45%,transparent)}
+.js .chap h3,.js .chap .num{opacity:0;transform:translateY(18px);transition:opacity .9s,transform .9s}
+.js .chap.in-view h3,.js .chap.in-view .num{opacity:1;transform:none}
+
+/* objectifs HRP */
+.band{max-width:1080px;margin:40px auto 0;padding:56px clamp(24px,5vw,64px);border:1px solid var(--filet);border-top:3px solid var(--foudre);border-radius:4px;background:radial-gradient(80% 120% at 50% 0%,rgba(255,226,122,.1),transparent 70%),rgba(12,19,36,.8)}
+.band h3{font:800 clamp(2.2rem,5vw,3.4rem)/1 var(--titre)}
+.band>p{color:var(--doux);margin-top:12px;max-width:52ch}
+.goals{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:40px}
+.goals h4{font:800 clamp(1.7rem,3.4vw,2.3rem)/1.05 var(--titre);color:var(--foudre);margin-bottom:14px}
+.goals p{margin:0;font-size:1.08rem;line-height:1.75}
+
+footer{padding:56px 20px;text-align:center;color:var(--doux);font-size:.98rem}
+footer b{color:#fff;font-weight:600}
+
+@media (max-width:900px){
+  .sec .in{grid-template-columns:1fr;gap:28px}.sec h2{position:static}
+  .goals{grid-template-columns:1fr;gap:34px}
+  .bar b{display:none}.bar-in{justify-content:center}
+  .hero-in{padding:110px 20px 200px}.bolt{opacity:.4;width:90%}
+  .sec,.chap{padding:70px 20px}
+}
+@media (max-width:560px){.glass{padding:6px 22px}.glass dl{grid-template-columns:1fr}.glass dl div:nth-last-child(2){border-bottom:1px solid rgba(255,255,255,.08)}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero h1,.hero .sub,.hero q,.go,.cloud,.fl{animation:none}
+  .bolt path{animation:none;stroke-dashoffset:0}
+  .js .chap h3,.js .chap .num{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas><div id="flash"></div><div id="prog"></div>
+
+<header class="bar" id="bar"><div class="bar-in">
+  <b>Tatsumi Arashi</b>
+  <nav id="nav">
+    <a href="#hrp">Infos HRP</a><a href="#histoire">Histoire</a><a href="#psychologie">Psychologie</a>
+    <a href="#physique">Physique</a><a href="#objectifs">Objectifs</a><a href="#conclusion">Conclusion</a>
+  </nav>
+</div></header>
+
+<div class="hero" data-fx="stars">
+  <div class="cloud"></div>
+  <svg class="bolt" viewBox="0 0 400 600" preserveAspectRatio="xMaxYMin slice" aria-hidden="true">
+    <path pathLength="1" d="M310 -10 L222 175 L292 190 L172 372 L244 384 L128 610"/>
+    <path class="b2" pathLength="1" d="M222 175 L150 240 L192 258 L132 312"/>
+  </svg>
+  <div class="fl"></div>
+  <svg class="mts" viewBox="0 0 1440 250" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#111b33" d="M0 250V120l90-50 80 40 110-80 100 70 90-30 120 80 100-60 130 50 110-90 120 90 100-40 120 70 70-30V250z"/>
+    <path fill="#0b1325" d="M0 250V170l130-60 90 50 120-70 110 80 150-40 110 60 130-80 140 70 110-50 140 60 110-30V250z"/>
+    <path fill="#070b14" d="M0 250V205l150-40 130 35 160-45 150 40 170-30 140 40 160-35 140 30 110-20V250z"/>
+  </svg>
+  <div class="hero-in">
+    <h1>Tatsumi<br>Arashi</h1>
+    <p class="sub">Genin de Kumogakure, onze ans. Le petit dernier d'une maison de marchands et d'astronomes, avec un carnet, un arc qu'il tend à moitié et des poches pleines.</p>
+    <q>Une parole, c'est un prix.</q>
+    <a class="go" href="#histoire">Lire son histoire</a>
+  </div>
+</div>
+
+<main>
+
+<section class="sec" id="hrp" data-fx="stars"><div class="in">
+  <h2>Informations HRP</h2>
+  <div class="glass"><dl>
+    <div><dt>Pseudo Discord</dt><dd>chimorin_way</dd></div>
+    <div><dt>Pseudo Minecraft</dt><dd>Chimorin22</dd></div>
+    <div><dt>Personnage</dt><dd>Tatsumi Arashi</dd></div>
+    <div><dt>Âge</dt><dd>11 ans</dd></div>
+    <div><dt>Village et clan</dt><dd>Kumogakure, Arashi</dd></div>
+    <div><dt>Rang</dt><dd>Genin</dd></div>
+    <div><dt>Affinités</dt><dd>Raiton et Katon</dd></div>
+    <div><dt>Arme</dt><dd>Un arc ancien, mal maîtrisé</dd></div>
+  </dl></div>
+</div></section>
+
+<section id="histoire">
+  <div class="intro" data-fx="snow">
+    <h2>Histoire</h2>
+    <p>De la neige du nord jusqu'au bandeau de Kumogakure, en dix chapitres.</p>
+    <div class="som"><a href="#chap-1" title="Un enfant du nord">I</a><a href="#chap-2" title="Une maison à Kumo">II</a><a href="#chap-3" title="Le comptoir de Natsume">III</a><a href="#chap-4" title="Les étés du père">IV</a><a href="#chap-5" title="Le pain sous la neige">V</a><a href="#chap-6" title="Genma">VI</a><a href="#chap-7" title="Kagura">VII</a><a href="#chap-8" title="L&#x27;Académie">VIII</a><a href="#chap-9" title="Genin">IX</a><a href="#chap-10" title="Tatsumi aujourd&#x27;hui">X</a></div>
+  </div>
+  <article class="chap" id="chap-1" data-fx="snow"><div class="in"><span class="num" aria-hidden="true">I</span><h3>Un enfant du nord</h3>
+<p>Tatsumi n'est pas né à Kumogakure. Il est né loin au nord, au-delà des cols qui ne s'ouvrent que quelques mois par an, dans une maison de pierre où la neige tenait huit mois sur douze. Sa mère, Natsume, est une Arashi de Kumo. Jeune, elle avait choisi un métier qui ne ressemblait pas à celui des siens : elle ne se battait pas, elle achetait et revendait. Du matériel de montagne, des cordes, des pointes de flèche, du minerai brut, des peaux. Un automne, ses routes l'avaient menée jusqu'au nord pour traiter avec une vieille famille de marchands et d'archers. Elle devait y rester une semaine. Elle y resta un hiver, puis deux, puis trois. Le père de Tatsumi était déjà un homme âgé à sa naissance. Il parlait peu, marchait lentement, et portait sur lui la fatigue de ceux qui ont reçu en héritage des obligations qu'on ne peut ni déposer ni expliquer à n'importe qui. Natsume l'aimait pour sa patience. Lui l'aimait parce qu'elle était la première personne en vingt ans à lui faire dire plus de dix mots d'affilée.</p>
+<p>Pourtant, ils se séparèrent. Il n'y eut ni cris, ni trahison, ni rancune. Elle ne pouvait pas vivre toute sa vie derrière les cols : son commerce, son clan et sa maison étaient à Kumo, et elle voulait que son fils grandisse là-bas. Lui ne pouvait pas quitter la terre et les devoirs de sa famille. Ils se le dirent calmement, un soir d'hiver, devant le feu. Quelques semaines plus tard, quand les cols s'ouvrirent, Natsume descendit vers Kumo avec un bébé dans les bras et une charrette de marchandises. Tatsumi n'a gardé aucun souvenir de cette époque. Il connaît cette histoire parce qu'elle la lui a racontée, sans enjoliver, quand il a eu l'âge de demander pourquoi il avait « deux endroits ». Dans le clan Arashi, personne ne lui fit jamais sentir qu'il était à moitié quelque chose. Pour eux, il était l'enfant de Natsume, et c'était suffisant.</p>
+</div></article>
+<article class="chap" id="chap-2" data-fx="stars"><div class="in"><span class="num" aria-hidden="true">II</span><h3>Une maison à Kumo</h3>
+<p>Quand Tatsumi avait un peu plus d'un an, sa mère se remaria avec un homme de Kumo, lui aussi Arashi, veuf en quelque sorte de sa première vie : l'épouse qu'il avait eue était partie quand ses deux fils étaient encore petits. Ces deux garçons étaient Genma et Kagura. Genma avait alors cinq ou six ans et se souvenait vaguement de sa première mère. Kagura, à peine plus qu'un nourrisson, n'en gardait aucun souvenir. Pour lui, la femme qui lui préparait ses repas et le grondait quand il rentrait avec les genoux écorchés a toujours été Natsume, et il l'appelle « maman » sans y avoir jamais réfléchi.</p>
+<p>Le beau-père de Tatsumi est un homme de calculs et de silence. Il consacre une grande partie de son temps aux « Sciences du Ciel » : astronomie, observation des astres, instruments, cartes. La maison des Arashi, sur les hauteurs de Kumo, déborde de papiers couverts de chiffres, de lentilles posées sur des tables, de cartes célestes roulées derrière les portes. Le premier souvenir de Tatsumi est là-dedans : assis sur ses épaules, la tête levée vers le ciel, tandis que le beau-père comptait à voix basse en pointant une étoile après l'autre. À cinq ans, après une dispute d'enfants au cours de laquelle un voisin lui avait lancé que « ce n'est pas vraiment ton père », Tatsumi était rentré, s'était assis à côté de son beau-père et lui avait posé la question sans détour. « Est-ce que je suis ton fils ? » Le beau-père avait posé son instrument, l'avait regardé un long moment et avait répondu : « Les étoiles ne te demandent pas de qui tu es le fils pour être au-dessus de ta tête. »</p>
+<p>Puis il lui avait tendu une paire de lentilles pour qu'il regarde par lui-même. Tatsumi n'avait pas compris la réponse, mais il l'avait retenue. Plus tard, en la comprenant, il avait décidé que c'était une très bonne réponse. La maison est bruyante. Genma y est déjà le calme, Kagura le vacarme, et Natsume tient l'ensemble comme elle tient son comptoir : en regardant tout, en laissant passer ce qui n'a pas d'importance et en tranchant le reste. Tatsumi est le troisième garçon, le petit dernier, et il comprit très tôt qu'il n'avait pas à mériter sa place. On la lui avait déjà donnée. Il y a toujours eu, quelque part dans cette maison, une chose que son beau-père faisait remarquer à chacun de ses fils selon son âge. À Genma, de réfléchir avant d'agir. À Kagura, de s'arrêter parfois. À Tatsumi, de regarder avant de juger. Seul Genma fit semblant de ne pas l'avoir entendu.</p>
+</div></article>
+<article class="chap" id="chap-3" data-fx="embers"><div class="in"><span class="num" aria-hidden="true">III</span><h3>Le comptoir de Natsume</h3>
+<p>Le commerce de sa mère se trouve en bas du quartier des artisans, dans une boutique étroite qui sent le cuir, la corde neuve et l'huile de lampe. Natsume y travaille comme courtière : elle achète aux producteurs de montagne, revend aux ateliers de Kumo, et se rémunère sur la différence. Elle n'a jamais fait fortune, mais on lui confie des contrats parce qu'elle ne revient jamais sur un prix annoncé. Elle a une phrase qu'elle répète à tout le monde et que Tatsumi connaît mieux que n'importe quelle comptine : « Une parole, c'est un prix. »</p>
+<p>Dès ses six ans, il passe ses après-midi au comptoir, assis sur un tabouret trop haut, à apprendre les poids, les mesures et les noms des marchandises. À sept ans, il savait tenir une colonne de chiffres. À huit, il corrigeait les erreurs de calcul d'apprentis deux fois plus âgés que lui. Son beau-père, qui aidait sa mère à calculer les routes et les saisons de passage des cols, lui avait appris les bases : « Un chiffre n'est pas une opinion. Il est juste ou il est faux. » Cela convenait parfaitement à Tatsumi. C'est au comptoir qu'il apprit ce qu'était l'honnêteté, non comme une belle idée mais comme une pratique quotidienne. Un jour, à sept ans, une cliente quitta la boutique en laissant sur le comptoir une pièce de trop, sans s'en rendre compte. Natsume était à l'arrière. Tatsumi attrapa la pièce et courut dans la rue, la serra dans son poing en cherchant la femme entre les étals, et la rattrapa tout au bout de la rue, essoufflé. « Vous avez laissé trop », dit-il.</p>
+<p>Quand il rentra, sa mère ne le félicita pas. Elle compta les pièces de la caisse, soupira doucement, puis lui expliqua que ce mois-là, ils n'avaient pas beaucoup de marge, et que cette pièce n'était pas rien. Il baissa la tête. « Mais tu as bien fait », ajouta-t-elle. « On ne perd jamais ce qu'on rend. On perd seulement sur le moment. » Un autre souvenir de cette époque revient souvent. Un concurrent de sa mère avait été pris à fausser sa balance d'un grain ou deux pour gagner un peu plus à chaque vente. Natsume avait refusé de commercer avec lui, sans scandale, sans en parler à personne, avec un simple « non » poli. Quelques mois plus tard, ses fournisseurs, qui s'étaient parlé entre eux, ne voulaient plus traiter qu'avec elle. Tatsumi n'en fit pas une leçon de morale. Il en tira une conclusion simple : l'honnêteté finit par payer, mais lentement, et il faut accepter d'attendre.</p>
+<p>À huit ans, il gagna ses premières pièces en portant des messages entre ateliers. Il les garda dans un pot de grès et les comptait chaque soir. Il n'avait aucune idée précise de ce qu'il en ferait. Il savait seulement qu'une pièce, c'était déjà un début.</p>
+</div></article>
+<article class="chap" id="chap-4" data-fx="embers"><div class="in"><span class="num" aria-hidden="true">IV</span><h3>Les étés du père</h3>
+<p>Chaque année, quand les cols du nord s'ouvraient, Natsume organisait une caravane et emmenait Tatsumi avec elle. Le voyage durait une dizaine de jours. Elle commerçait le long de la route et, une fois arrivée, le laissait pour quelques semaines dans la maison de son père, avant de repartir faire ses affaires dans les villages voisins. Il y avait chez ces étés quelque chose de très différent de Kumo. Le silence, d'abord. La maison du père était vaste, froide, remplie de meubles trop anciens pour qu'on y touche sans y penser, et l'on y entendait le vent dans la pierre. Le père lui-même était un vieil homme maigre, aux gestes lents, qui regardait son fils comme on regarde quelque chose qu'on ne mérite pas tout à fait. Il ne lui apprit pas à se battre. Il lui apprit à tenir. Le premier été dont Tatsumi se souvienne bien, il avait six ans. Le père l'emmena devant la cheminée, fit jaillir une flamme minuscule du bout de son doigt et lui dit : « Dans le froid, on apprend le feu en premier. »</p>
+<p>C'est ainsi que Tatsumi découvrit le Katon, à travers une flammèche de la taille d'un grain de riz qu'il mit trois étés à faire durer plus de quelques secondes. Le Raiton, lui, vint de sa mère. Elle le lui apprit à Kumo, à sa manière directe, en lui faisant sentir le courant passer dans la paume plutôt qu'en l'expliquant. Elle ne put jamais s'empêcher de rire quand l'électricité statique lui faisait dresser les cheveux sur la tête : c'était une blague entre eux. C'est aussi cet été-là que le père lui raconta, pour la première fois, une partie de l'histoire de sa famille. Il ne le fit pas comme on raconte une légende. Il parlait lentement, en regardant le feu. Il dit que sa famille avait connu un grand malheur, très longtemps auparavant, et que ses membres avaient été dispersés. Que certains des siens, sans rien, sans abri et sans personne, étaient restés des semaines sans manger, et que quelques-uns en étaient morts. Qu'ils n'avaient pas manqué de gens capables de les aider, mais que ceux-ci n'avaient rien fait. « Pourquoi ? » demanda Tatsumi. « Parce que c'est plus facile d'attendre que quelqu'un d'autre bouge. »</p>
+<p>Il ne dit pas le nom de cette famille. Tatsumi ne l'apprit pas ce jour-là. Plus tard, il apprit qu'il existait, et son père lui demanda de ne pas le répéter à n'importe qui. « Ce n'est pas la honte », précisa-t-il. « Mais un nom ne se réclame pas. Il se mérite. » Tatsumi comprit à moitié. Il retint surtout le reste. Quand sa mère revint le chercher, il lui demanda si ce genre de chose arrivait encore. Elle le regarda longtemps, puis dit oui. Dans le monde, il y avait des gens qui avaient faim, qui avaient froid et que personne ne regardait, et il suffisait parfois de s'arrêter pour que ça change. Il rentra à Kumo en silence. Pendant des semaines, il ne parla presque plus de ce voyage. À neuf ans, le père lui remit l'arc. C'était une arme ancienne, longue, d'un bois sombre, plus vieille que la maison, enveloppée dans un tissu qu'on ne retire que pour s'en servir. Il la lui tendit sans cérémonie. « Il ne sert pas à gagner », dit-il. « Il se garde. »</p>
+<p>Tatsumi ne parvint pas à la tendre complètement. Le père ne se moqua pas. Il lui montra la position, le souffle, la manière de laisser la corde venir à soi plutôt que de la forcer. « Un arc se tend lentement. Si tu es pressé, tu tireras mal toute ta vie. » Cette phrase lui est restée en travers de la gorge comme un reproche mérité.</p>
+</div></article>
+<article class="chap" id="chap-5" data-fx="snow"><div class="in"><span class="num" aria-hidden="true">V</span><h3>Le pain sous la neige</h3>
+<p>L'hiver de ses huit ans, un matin de grand froid, Tatsumi traversait le marché de Kumo pour livrer un message. Contre le mur d'une halle, à l'abri d'une charrette, un vieil homme et deux enfants se serraient sous une couverture trop fine. Les gens contournaient la charrette sans ralentir. Personne ne les regardait vraiment, ni ne les évitait. Ils étaient simplement là, comme une partie du décor. Tatsumi s'arrêta. Il avait un petit pain dans sa poche, celui qu'il emportait pour midi. Il le tendit au plus jeune des deux enfants, qui le regarda comme s'il lui tendait un bijou. Puis il resta planté devant eux, sans savoir quoi faire d'autre. Il aurait dû continuer sa course. Il était en retard. Il resta là, à regarder les passants passer. Quand il rentra au comptoir, sa mère l'attendait, un peu inquiète. « Tu étais où ? » Il lui raconta. Elle ne dit rien pendant un long moment. « Pourquoi personne ne s'arrête ? » demanda-t-il. « Ils les ont vus. Je sais qu'ils les ont vus. » « Parce qu'ils pensent que quelqu'un d'autre le fera », répondit-elle. « Et le “quelqu'un d'autre”, c'est personne. »</p>
+<p>Le lendemain, elle alla elle-même parler au vieil homme. Il avait été tisserand dans un village de montagne avant que son atelier ne ferme, et il avait fini par venir à Kumo avec ses deux petits-enfants sans avoir de quoi se loger. Natsume l'embaucha pour tenir le comptoir quelques heures par jour et nettoyer les paniers de marchandises. Ce n'était pas grand-chose. Mais le vieil homme travaillait, les enfants mangeaient, et l'hiver passa. Tatsumi n'en tira aucune fierté. Il en tira une habitude. Il commença à garder toujours quelque chose à manger sur lui, un morceau de pain, une pomme séchée, un peu de viande fumée. Il ne jetait jamais de nourriture. Si quelqu'un laissait un repas à moitié fini, il le récupérait. Ses frères en rirent un peu. Genma finit par s'en apercevoir et ne dit rien. Un soir, il glissa une poignée de noix sèches dans la poche de son manteau, sans un mot.</p>
+<p>Ce jour-là, dans le froid du marché, Tatsumi avait compris quelque chose de très simple qu'il ne sut pas exprimer avant longtemps : ce qui l'avait le plus choqué, ce n'était pas la faim. C'était que tout le monde avait vu, et que personne n'avait bougé.</p>
+</div></article>
+<article class="chap" id="chap-6" data-fx="stars"><div class="in"><span class="num" aria-hidden="true">VI</span><h3>Genma</h3>
+<p>Genma a cinq ans de plus que Tatsumi. Il est calme, méthodique, un peu en avance sur son âge, et il a toujours donné l'impression de porter une responsabilité que personne ne lui avait confiée. Il est aujourd'hui Chûnin. Il part en mission, revient fatigué, repart. Avec Tatsumi, il a toujours été protecteur sans insister. Quand ils étaient plus jeunes, il l'accompagnait à l'Académie quand Natsume n'avait pas le temps, et il le laissait poser toutes les questions qu'il voulait pendant le trajet, sans jamais le presser. Il l'écoutait comme il écoutait tout : en pesant chaque mot. Pour les huit ans de Tatsumi, il lui offrit un carnet à couverture de toile. Il y avait écrit sur la première page, de sa belle écriture régulière :</p>
+<blockquote>« Quand tu veux quelque chose, écris-le. Puis écris comment tu vas l'obtenir. Puis écris ce que tu feras si ça échoue. »</blockquote>
+<p>Tatsumi trouva cela étrange. Genma lui expliqua qu'il se préparait toujours à ce qui pouvait mal tourner, et que ce n'était pas de la peur, mais une façon de prendre soin de ceux qu'on aime : « Si tu as un plan B, les autres n'ont pas à en avoir un à ta place. » Il le garde encore. Il l'a rempli de listes : combien il a gagné, combien il lui faudrait pour acheter tel matériel, les noms des gens qu'il veut aider un jour, des itinéraires, des idées de commerce. Il y a parfois des pages entières de calculs qui n'aboutissent à rien, mais il ne les arrache jamais. Quand Genma part en mission, Tatsumi attend. Il ne le dit à personne. Il calcule, avec les tables de son beau-père, le jour où son frère devrait normalement revenir, et ce jour-là, il laisse la porte entrouverte. Genma sait parfaitement qu'il le fait. Il ne le lui a jamais dit.</p>
+<p>Un soir, il y a deux ans, alors que Tatsumi n'arrivait pas à dormir, Genma s'était assis à côté de son lit et lui avait parlé de sa première mère. Il ne se rappelait presque rien d'elle : une voix, un chant, la couleur d'un tissu. Il n'avait jamais osé en parler à Kagura, qui n'avait rien connu d'autre que Natsume. « Tu sais, dit-il ce soir-là, Maman n'a jamais fait de différence entre nous. Jamais. Je voulais que tu le saches, parce que tu poses souvent la question sans la poser. » Tatsumi ne répondit pas. Mais il dormit beaucoup mieux cette nuit-là.</p>
+</div></article>
+<article class="chap" id="chap-7" data-fx="snow"><div class="in"><span class="num" aria-hidden="true">VII</span><h3>Kagura</h3>
+<p>Kagura n'a qu'un an de plus que Tatsumi, et ils ont grandi comme deux chiens de la même portée : à se disputer tout, à partager le reste. Kagura transforme tout en compétition. Une course jusqu'au bout de la rue, un lancer de pierre, le dernier arrivé à table. Tatsumi n'était pas particulièrement attaché à la victoire, mais il avait un défaut : il détestait laisser un défi à moitié fait. Résultat, leurs parties duraient des heures. Kagura disait toujours « encore une dernière » et Tatsumi, qui savait que c'était faux, répondait « d'accord » quand même. Un jour de neige, ils firent une course jusqu'au sommet de la colline derrière la maison. Kagura gagna d'un pas. Il voulut recommencer. Ils recommencèrent sept fois. À la huitième, Tatsumi gagna, et Kagura fixa la neige un long moment avant de dire d'une voix étranglée : « Une dernière. »</p>
+<p>Natsume les retrouva à la tombée de la nuit, gelés, épuisés, les mains violettes. Elle ne cria pas. Elle les ramena à la maison, leur fit prendre un bain chaud et les enferma tous les deux dans la même pièce avec une soupe, en leur disant de s'expliquer. Ils éclatèrent de rire avant même de finir la soupe. Kagura est un très mauvais menteur, et Tatsumi l'a appris en l'observant. Quand il invente une excuse, il détourne le regard, se gratte la nuque et finit par avouer en moins d'une minute. Il y a deux ans, Tatsumi avait donné une partie de ses rations à un camarade de l'Académie qui n'avait pas de quoi déjeuner, et s'était retrouvé sans repas pendant une semaine. Kagura avait menti à leur mère pour le couvrir, en disant qu'il avait mangé à l'extérieur. Il avait tenu trente secondes. Natsume n'avait pas été dupe, mais elle n'avait rien dit non plus.</p>
+<p>Il y a aussi le jour de l'arc. À dix ans, Tatsumi s'entraînait seul dans la cour, au petit matin, parce qu'il ne voulait pas que quiconque le voie rater. Kagura l'avait surpris et avait demandé, avec son sourire habituel, à essayer. Il avait saisi l'arc, l'avait tendu de toutes ses forces, et n'avait pas réussi à le tirer à la moitié de sa course. Il l'avait reposé, vexé, et avait déclaré qu'il reviendrait plus tard « quand j'aurai plus de force ». Il n'est jamais revenu. Mais il s'est mis à se lever plus tôt, certains matins, pour s'asseoir sur le muret de la cour et regarder Tatsumi s'entraîner, sans commentaire. Tatsumi ne lui a jamais demandé pourquoi.</p>
+<p>Un soir, pendant une observation du ciel avec leur beau-père, Kagura avait forcé Tatsumi à essayer les énormes lunettes à verres bleutés que le beau-père ne pouvait plus porter à cause de sa vue qui baissait. Il avait gloussé pendant dix bonnes minutes. Tatsumi, qui avait l'air d'un insecte, avait fini par éclater de rire à son tour. Depuis, Kagura porte lui-même ces lunettes sur le front, et prétend toujours qu'elles sont ridicules. Il ne dit jamais à Tatsumi qu'il est fier de lui. Mais quand quelqu'un l'embête au marché, c'est toujours Kagura qui arrive le premier, les poings serrés. Tatsumi lui a déjà dit : « Ça suffit. » Kagura l'a regardé, a hésité, puis a baissé les poings. C'est une des rares fois où il a cédé. Son meilleur ami est un Yotsuki, un garçon plus grand que lui qui se moque ouvertement de ses défaites et le sort régulièrement des ennuis. Avec Tatsumi, il a toujours été d'une patience étrange, comme on l'est avec un petit frère qui n'est pas le sien.</p>
+</div></article>
+<article class="chap" id="chap-8" data-fx="storm"><div class="in"><span class="num" aria-hidden="true">VIII</span><h3>L'Académie</h3>
+<p>Tatsumi entra à l'Académie de Kumogakure à six ans. Il n'y fut ni le plus fort, ni le plus rapide, ni le plus brillant. Il fut le plus régulier. En théorie, il excellait dans tout ce qui touchait au calcul, à la logistique et à l'organisation. Il savait estimer le ravitaillement nécessaire pour une équipe, calculer la durée d'une marche selon le terrain et la saison, et préparer des itinéraires. Ses instructeurs le remarquèrent tôt. En pratique, il était plus lent que ses camarades. Ses mains avaient du mal avec les sceaux, son chakra répondait avec retard, et il tendait l'arc de manière hésitante, ce qu'il cachait en s'entraînant seul. Il se fit des amis facilement, sans effort. Il parlait au fils du forgeron comme à la fille de la couturière, aux enfants de bonne famille comme à ceux qui n'avaient rien. Cette aisance valait toutes les amitiés intéressées. Les petits venaient s'asseoir à côté de lui à midi, sachant qu'il y aurait toujours un peu à partager. À neuf ans, il s'attira son seul vrai problème avec l'autorité.</p>
+<p>C'était un exercice de marche chronométrée en montagne. Un camarade tomba et se foula la cheville à mi-parcours. L'instructeur donna l'ordre de continuer : l'exercice était noté, et un abandon coûtait des points à tout le groupe. Tatsumi s'arrêta. « Reste avec le groupe, Tatsumi. » « Il ne peut pas marcher. » « C'est un ordre. » « Alors je reste avec lui. » Il resta. Ils rentrèrent trois heures plus tard, le camarade appuyé sur son épaule, après que la nuit fut tombée. L'instructeur lui infligea une semaine de corvées. Tatsumi les fit sans protester, sans discuter, sans rien dire à personne. Genma l'apprit le soir même. Il ne le gronda pas. « On ne désobéit pas à la légère », dit-il. « Il faut que ce soit pour quelque chose qui en vaut la peine. » « C'en valait la peine. » « Je sais. C'est pour ça que je ne te dis rien. »</p>
+<p>Depuis, Tatsumi obéit presque toujours. Il respecte ses supérieurs, suit les règles du village, et ne cherche jamais le conflit. Mais il a découvert ce jour-là une limite qu'il ne franchira pas : on peut lui demander presque n'importe quoi, sauf d'abandonner quelqu'un. À l'Académie, il fut aussi celui qui se retrouvait à partager le contenu de ses poches avec ceux qui avaient oublié leur repas, et qui disait toujours qu'il en avait « de trop ».</p>
+</div></article>
+<article class="chap" id="chap-9" data-fx="storm"><div class="in"><span class="num" aria-hidden="true">IX</span><h3>Genin</h3>
+<p>À onze ans, un peu plus jeune que la plupart des candidats, Tatsumi se présenta à l'examen de Genin. Ses instructeurs avaient hésité à l'y autoriser. Ils avaient fini par se dire qu'il était, à sa manière, déjà prêt. L'examen se déroulait en trois épreuves.</p>
+<p class="trial"><strong>L'épreuve théorique.</strong> Une longue série de questions écrites sur les clans de Kumo, la logistique des missions et l'éthique shinobi. Tatsumi y excella en calcul de ravitaillement et d'itinéraires, au point de terminer avant tout le monde. Ses réponses aux questions éthiques furent en revanche jugées « trop tranchées » : face à une situation où il faudrait abandonner quelqu'un pour sauver une mission, il avait écrit, sans détour, qu'il ne le ferait pas.</p>
+<p class="trial"><strong>L'épreuve pratique.</strong> Contrôle du chakra sur des cibles à distance. Tatsumi devait alterner son Raiton et son Katon sans toucher à son arc. Il y parvint, proprement, mais lentement. Il s'agaça en voyant d'autres candidats frapper plus vite que lui, sans que cela n'entame sa concentration.</p>
+<p class="trial"><strong>L'épreuve stratégique.</strong> Une simulation de mission en équipe de trois, avec un ravitaillement strictement limité. Les candidats devaient atteindre un point précis en perdant le moins de ressources possible. Tatsumi partagea ses rations avec un coéquipier dont le sac avait été saboté par l'épreuve. Cela lui coûta des points. L'équipe réussit tout de même la mission, et quand les examinateurs lui demandèrent pourquoi il n'avait pas économisé sur ses réserves, il répondit simplement qu'une équipe ne pouvait pas réussir si l'un de ses membres s'effondrait. Quelqu'un, dans la salle, nota quelque chose.</p>
+<p>Il reçut son bandeau de Kumogakure en fin d'après-midi. Il rentra à la maison en marchant lentement, le bandeau serré dans la main plutôt que noué. Natsume l'attendait devant la porte. Elle ne dit rien. Elle le serra contre elle, très fort, pendant très longtemps, et il sentit dans ses cheveux le crépitement de l'électricité statique qu'elle n'avait jamais su contrôler. Genma, rentré exprès de mission, ne dit presque rien non plus, mais il resta à côté de lui pendant tout le repas. Kagura, lui, déclara que « de toute façon, c'était facile », puis ajouta tout bas, sans le regarder, que « c'était bien » avant de changer de sujet. Le beau-père, enfin, lui offrit une petite boussole de poche en laiton, gravée d'une étoile. « Pour te retrouver quand tu seras loin », dit-il. Ce soir-là, Tatsumi ouvrit son carnet et écrivit une première page :</p>
+<blockquote>« Être Genin. Étape un. »</blockquote>
+</div></article>
+<article class="chap" id="chap-10" data-fx="stars"><div class="in"><span class="num" aria-hidden="true">X</span><h3>Tatsumi aujourd'hui</h3>
+<p>À onze ans, Tatsumi est un petit garçon sociable, direct et un peu sec, qui sait être très chaleureux avec ceux qui n'ont pas l'habitude qu'on s'intéresse à eux. Il plaisante volontiers avec les marchands, qui l'aiment bien. Il donne sa confiance lentement, mais il la donne entièrement. Il est honnête sans en faire une vertu : il ne ment pas, ne vole pas, et n'a jamais compris qu'on puisse s'enrichir en trompant quelqu'un. Il négocie dur, mais juste. Il aime l'argent pour ce qu'il permet de faire, et il refuse tout profit qui viendrait de la détresse d'autrui. Son carnet est rempli de petits objectifs chiffrés. Il agit vite, souvent trop vite. Quand une situation lui paraît injuste, il intervient avant d'avoir réfléchi, et il juge parfois durement ceux qui hésitent. Sa colère est froide : il ne crie pas, il se tait, puis il agit. Ce qui la déclenche presque toujours, c'est l'indifférence, le « personne ne bouge ». Il n'a pas encore l'âge de savoir que ce n'est pas toujours aussi simple qu'il le croit.</p>
+<p>Il combat loyalement. Il n'achève pas un ennemi à terre, il ne recule jamais quand un faible est menacé, et il a encore beaucoup à apprendre sur la manière de survivre à ses propres bonnes intentions. Son Raiton est encore hésitant, son Katon plus fragile encore, et il tend toujours l'arc de son père à moitié, en silence, en espérant qu'un jour il le tendra jusqu'au bout. Il ne le sort jamais en public. Il sait qu'il porte une histoire familiale qui n'est pas finie. Il ne la ressasse pas, mais elle explique qu'il veuille un jour devenir quelqu'un d'assez solide, d'assez riche et d'assez respecté pour que les siens ne manquent plus jamais de rien, et qu'une famille trop longtemps oubliée retrouve sa place. Il n'a pas encore décidé comment il y parviendra. Il sait seulement que ce sera étape par étape.</p>
+<p>Chez les Arashi, un nouveau Genin se voit attribuer un Yotsuki, chargé de combattre à ses côtés. Tatsumi connaît cette tradition, et la prend plus au sérieux que ce qu'on attend d'un garçon de son âge. Pour lui, un pacte est une parole, et une parole, c'est un prix. Le Baptême de la Foudre viendra si un jour il le mérite. Il ne se presse pas. Il lui reste tout à prouver. Mais il avance, étape par étape, avec un carnet, une boussole de laiton, un arc qu'il tend à moitié et une poche toujours pleine de quelque chose à partager.</p>
+</div></article>
+</section>
+
+<section class="sec" id="psychologie" data-fx="stars"><div class="in">
+  <h2>Présentation psychologique</h2>
+  <div>
+    <p>Tatsumi tient sa parole, et tout le reste en découle. Il ne ment pas, ne vole pas, n'arnaque personne et ne laisse jamais tomber quelqu'un qui compte sur lui. S'il garde pour lui une partie de l'histoire de sa famille, c'est par discrétion et non par mensonge, parce qu'un nom ne se réclame pas, il se mérite. Avec les autres, il est chaleureux, direct, un peu sec, et il parle aussi volontiers au fils du forgeron qu'à un mendiant du marché. Les marchands l'adorent, il donne sa confiance lentement mais entièrement.</p>
+    <p>Ce qui le met en mouvement, c'est l'indifférence. Pour lui, l'injustice n'est pas seulement la cruauté, c'est surtout le regard qui se détourne, le « quelqu'un d'autre s'en chargera ». Sa colère est froide et silencieuse : il se tait, puis il agit, souvent avant d'avoir réfléchi, alors qu'une simple insulte ne l'atteint pas. Il respecte la hiérarchie de Kumo et obéit presque toujours. Sa seule limite est un ordre qui reviendrait à abandonner quelqu'un, et il l'a franchie une fois en payant le prix sans se plaindre. L'argent n'est pour lui qu'un outil. Il note ses objectifs dans un carnet, négocie dur mais juste, et refuse tout profit tiré de la détresse des autres.</p>
+    <p>Ses défauts sont ceux de son âge. Il est impatient, il juge vite ceux qui hésitent, et il a peur d'être celui qui regarde souffrir sans rien faire, ce qui explique qu'il ne jette jamais de nourriture et garde toujours de quoi partager dans ses poches. Au combat, il est loyal : il n'achève pas un adversaire à terre et ne recule pas devant un faible menacé. Mais il reste faible lui-même, avec un Raiton hésitant, un Katon fragile et un arc qu'il ne tend qu'à moitié et ne sort jamais en public.</p>
+    <p>Il doit beaucoup aux siens. Sa mère Natsume lui a transmis le Raiton, ses principes et le sens du commerce. Son père, âgé et silencieux, lui a appris le Katon, l'arc et la patience. Son beau-père lui a donné le goût du calcul, Genma est son repère et Kagura son rival le plus fidèle. Il rit volontiers de leurs disputes, et de ses propres cheveux quand l'électricité statique les dresse.</p>
+  </div>
+</div></section>
+
+<section class="sec" id="physique" data-fx="stars"><div class="in">
+  <h2>Caractéristiques physiques</h2>
+  <div>
+    <p>À onze ans, Tatsumi mesure 1,38 m pour 34 kg. Il est mince et nerveux, endurant plutôt que fort, avec des épaules étroites et des poignets fins qui expliquent en partie pourquoi il peine à tendre son arc jusqu'au bout. Comme la plupart des Arashi, il a la peau sombre, d'un brun profond que les étés dans le nord ont hâlée, et des yeux noirs. Il tient de son père un regard posé, qui prend son temps. Ses cheveux, très clairs, presque blancs, sont courts et indisciplinés, et ils se dressent en épis dès qu'il fait appel au Raiton. Il n'a pas encore passé le Baptême de la Foudre, aucune marque ne rappelle donc l'orage sur sa peau.</p>
+    <p>Il porte la tenue simple d'un genin de Kumogakure et noue encore son bandeau avec maladresse. Dans son dos pend un long étui de toile qui garde son arc à l'abri des regards. À sa ceinture, une boussole de laiton gravée d'une étoile et un carnet à couverture de toile, et ses poches sont toujours pleines de pain et de fruits secs. Les cals au bout de ses doigts viennent de la corde, les petites brûlures de ses premiers essais de Katon.</p>
+  </div>
+</div></section>
+
+<section id="objectifs" style="padding:110px 20px" data-fx="storm">
+  <div class="sec" style="padding:0"><div class="in">
+    <h2>Objectifs</h2>
+    <div>
+      <p>Tatsumi veut d'abord gagner de l'argent, mais proprement. Il compte bâtir une richesse honnête à partir du commerce de sa mère, et s'en servir pour aider ceux dont personne ne s'occupe, en commençant par ce qu'il a dans les poches. Il veut aussi gagner en statut à Kumogakure, par des missions utiles et en méritant chaque rang. Le Baptême de la Foudre viendra s'il le mérite, il ne cherche pas à le forcer. Plus tard, quand il sera assez solide et assez respecté, il aimerait rendre à sa famille la place qu'elle a perdue, pour que les siens ne manquent plus jamais de rien.</p>
+      <p>Il lui reste énormément à apprendre. Il veut maîtriser le Raiton et le Katon, tendre un jour l'arc de son père jusqu'au bout, et honorer le pacte qui le liera à son Yotsuki, une parole donnée qu'il prendra très au sérieux.</p>
+    </div>
+  </div></div>
+  <div class="band">
+    <h3>Objectifs HRP</h3>
+    <p>Deux ambitions de long terme pour le joueur, à construire pas à pas, au rythme de l'âge et du rang du personnage.</p>
+    <div class="goals">
+      <div><h4>Devenir HG à Kumogakure</h4><p>Atteindre un haut grade au sein du village en passant par toutes les étapes, des missions aux responsabilités, grade après grade. Tatsumi commence genin, et chaque montée en grade doit se jouer plutôt que s'obtenir.</p></div>
+      <div><h4>Devenir l'un des personnages les plus impactants côté économie</h4><p>Bâtir un commerce honnête qui compte vraiment dans l'économie du serveur, avec des contrats, des partenariats entre joueurs, des emplois créés et de l'argent qui circule. Un personnage marchand génère du RP pour les autres, et ses décisions doivent avoir des conséquences visibles.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="conclusion" data-fx="stars"><div class="in">
+  <h2>Conclusion</h2>
+  <div>
+    <p>Tatsumi est un enfant, et il est écrit comme tel. Il est faible, impatient, parfois borné, mais honnête jusqu'au bout. Il n'a aucun exploit derrière lui, aucune technique qui fasse trembler le village, seulement une famille recomposée soudée, un commerce bâti sur la parole donnée et une idée simple de ce qui est juste : on ne regarde pas quelqu'un souffrir sans rien faire.</p>
+    <p>Son histoire est faite pour être jouée. Son rang, sa fortune, sa maîtrise de l'arc, la place qu'il se fera à Kumogakure, tout reste à construire. Merci d'avoir pris le temps de le lire. Pour toute remarque, le joueur reste joignable sur Discord.</p>
+  </div>
+</div></section>
+
+</main>
+
+<footer>Candidature de <b>Tatsumi Arashi</b>. Discord <b>chimorin_way</b>, Minecraft <b>Chimorin22</b>.</footer>
+
+<script>
+(function(){
+  document.documentElement.className='js';
+  var cv=document.getElementById('fx'),cx=cv.getContext('2d'),W,H,P=[],mode='stars';
+  var still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var COUNT={stars:130,snow:110,embers:55,storm:90};
+  function seed(){
+    P=[];
+    for(var i=0;i<COUNT[mode];i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.5,v:Math.random()*.6+.3,p:Math.random()*6.28});
+  }
+  function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;seed();if(still)tick(0);}
+  function tick(t){
+    cx.clearRect(0,0,W,H);
+    P.forEach(function(q){
+      if(mode==='stars'){cx.fillStyle='rgba(255,255,255,'+(.25+.6*Math.abs(Math.sin(t/1400+q.p)))+')';}
+      else if(mode==='snow'){q.y+=q.v;q.x+=Math.sin(t/900+q.p)*.4;cx.fillStyle='rgba(220,235,255,.8)';}
+      else if(mode==='embers'){q.y-=q.v*.7;q.x+=Math.sin(t/700+q.p)*.5;cx.fillStyle='rgba(255,'+(120+q.r*40|0)+',70,'+(.25+.45*Math.abs(Math.sin(t/500+q.p)))+')';}
+      else{q.y+=q.v*14;q.x-=q.v*3;cx.strokeStyle='rgba(160,190,255,.3)';cx.beginPath();cx.moveTo(q.x,q.y);cx.lineTo(q.x+q.v*3,q.y-q.v*14);cx.stroke();}
+      if(q.y>H){q.y=-5;q.x=Math.random()*W}
+      if(q.y<-8){q.y=H+5;q.x=Math.random()*W}
+      if(q.x<-5)q.x=W+5;
+      if(q.x>W+5)q.x=-5;
+      if(mode!=='storm'){cx.beginPath();cx.arc(q.x,q.y,q.r,0,6.28);cx.fill();}
+    });
+    if(!still)requestAnimationFrame(tick);
+  }
+  size();addEventListener('resize',size);
+  if(!still)requestAnimationFrame(tick);
+
+  var fxEls=[].slice.call(document.querySelectorAll('[data-fx]'));
+  var secs=[].slice.call(document.querySelectorAll('main section[id], #histoire'));
+  var links=[].slice.call(document.querySelectorAll('#nav a'));
+  var bar=document.getElementById('bar'),prog=document.getElementById('prog'),flash=document.getElementById('flash');
+  function setMode(m){
+    if(m===mode)return;
+    cv.style.opacity=0;
+    setTimeout(function(){mode=m;seed();if(still)tick(0);cv.style.opacity=1;},450);
+  }
+  function onScroll(){
+    var y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+    prog.style.transform='scaleX('+(h>0?y/h:0)+')';
+    bar.classList.toggle('solid',y>40);
+    var line=innerHeight*.45,m=null,cur=null;
+    fxEls.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<=line&&r.bottom>line)m=el.dataset.fx;});
+    if(m)setMode(m);
+    secs.forEach(function(s){if(s.getBoundingClientRect().top<=140)cur=s.id;});
+    links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur);});
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);}});},{threshold:.15});
+    document.querySelectorAll('.chap').forEach(function(c){io.observe(c);});
+  }else{document.querySelectorAll('.chap').forEach(function(c){c.classList.add('in-view');});}
+
+  if(!still){
+    (function storm(){
+      setTimeout(function(){
+        if(mode==='storm'){flash.classList.remove('go');void flash.offsetWidth;flash.classList.add('go');}
+        storm();
+      },5000+Math.random()*8000);
+    })();
+  }
+})();
+</script>
+</body>
+</html>
